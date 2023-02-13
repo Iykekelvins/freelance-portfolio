@@ -1,0 +1,79 @@
+.home {
+  position: relative;
+}
+.home_hero {
+  position: relative;
+  min-height: calc(100vh - 86px);
+  background-image: url(../assets/images/Pattern.png);
+  background-position: center 190px;
+  background-repeat: no-repeat;
+}
+.home_hero_left_circle {
+  position: absolute;
+  top: -9rem;
+  left: -4rem;
+}
+.home_hero_right_circle {
+  position: absolute;
+  right: -13rem;
+  bottom: -30rem;
+}
+.home_hero_content {
+  display: grid;
+  justify-content: center;
+  flex-direction: column;
+  padding: 8rem 0;
+}
+.home_hero_content h1 {
+  font-size: max(190px, 11.875rem);
+  text-align: center;
+  line-height: 171px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.home_hero_content_info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3.875rem;
+}
+.home_hero_content_info h2 {
+  color: #0af0ff;
+  font-size: max(64px, 4rem);
+  padding-top: 57px;
+}
+.home_hero_content_info div {
+  margin-top: 57px;
+}
+.home_hero_content_info div p {
+  font-size: max(24px, 1.5rem);
+  font-family: "Roboto", sans-serif;
+}
+.home_hero_content_info div p:first-child {
+  padding-bottom: 1.5rem;
+}
+.home_hero_skills {
+  position: absolute;
+  top: 319px;
+  left: -6rem;
+  transform: rotate(-90deg);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.home_hero_skills p {
+  font-size: max(16px, 1rem);
+}
+.home_hero_socials {
+  position: absolute;
+  top: 319px;
+  right: -4rem;
+  transform: rotate(-90deg);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style-type: none;
+}
+.home_hero_socials li a {
+  color: #ffffff;
+  font-size: max(16px, 1rem);
+}/*# sourceMappingURL=home.css.map */
