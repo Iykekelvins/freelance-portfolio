@@ -110,10 +110,10 @@
   gap: 3.938rem;
 }
 .home_works_top div:first-child {
-  margin-top: 10%;
+  margin-top: 20%;
 }
 .home_works_top div:nth-child(2) {
-  margin-top: 5%;
+  margin-top: 10%;
 }
 .home_works_center {
   grid-template-columns: 1fr 0.75fr;
