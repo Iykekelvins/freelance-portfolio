@@ -59,4 +59,47 @@ button {
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.15em;
+}
+
+.connect {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 8rem 0;
+  position: relative;
+}
+.connect h3 {
+  font-size: max(54px, 3.375rem);
+}
+.connect h3 a {
+  color: #0ac4ff;
+  text-transform: uppercase;
+}
+.connect img {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+}
+.connect_top {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+.connect_bottom {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 8rem;
+}
+.connect_bottom a,
+.connect_bottom p {
+  color: #ffffff;
+  font-size: max(24px, 1.5rem);
+  font-family: "Roboto", sans-serif;
+}
+.connect .circle {
+  position: absolute;
+  right: -13rem;
+  bottom: -35rem;
 }/*# sourceMappingURL=app.css.map */
