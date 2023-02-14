@@ -1,0 +1,43 @@
+.about {
+  &_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(5, 5, 5, 0.6);
+    padding: 8rem 7rem;
+    position: relative;
+    h2 {
+      font-size: max(74px, 4.625rem);
+      text-transform: uppercase;
+    }
+    &_left {
+      div {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        margin-top: 1.5rem;
+        a {
+          color: #fff;
+          text-decoration: none;
+          font-family: "Roboto", sans-serif;
+          &:last-child {
+            color: #0af0ff;
+          }
+        }
+      }
+    }
+    &_right {
+      margin-right: 4.375rem;
+    }
+    .right {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .left {
+      position: absolute;
+      top: -9rem;
+      left: -4rem;
+    }
+  }
+}

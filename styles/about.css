@@ -1,0 +1,39 @@
+.about_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(5, 5, 5, 0.6);
+  padding: 8rem 7rem;
+  position: relative;
+}
+.about_header h2 {
+  font-size: max(74px, 4.625rem);
+  text-transform: uppercase;
+}
+.about_header_left div {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-top: 1.5rem;
+}
+.about_header_left div a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+}
+.about_header_left div a:last-child {
+  color: #0af0ff;
+}
+.about_header_right {
+  margin-right: 4.375rem;
+}
+.about_header .right {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.about_header .left {
+  position: absolute;
+  top: -9rem;
+  left: -4rem;
+}/*# sourceMappingURL=about.css.map */
