@@ -105,8 +105,8 @@
       }
     }
     &_top {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 3.938rem;
       div {
         &:first-child {
@@ -116,6 +116,18 @@
           margin-top: 5%;
         }
       }
+    }
+    &_center {
+      grid-template-columns: 1fr 0.75fr;
+    }
+    &_bottom {
+      grid-template-columns: 0.75fr 1fr;
+    }
+    .works_flex {
+      display: grid;
+      align-items: center;
+      margin-top: 9.5rem;
+      gap: 9.938rem;
     }
   }
 }

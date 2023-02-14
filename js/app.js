@@ -1,6 +1,6 @@
 const topImages = document.querySelector(".home_works_top");
-
-console.log(topImages);
+const centerImages = document.querySelector(".home_works_center");
+const bottomImages = document.querySelector(".home_works_bottom");
 
 const projects = [
   {
@@ -42,6 +42,7 @@ const projects = [
 
 const createWorkElement = (element) => {
   const project = document.createElement("div");
+
   const span = document.createElement("span");
   const img = document.createElement("img");
   const title = document.createElement("h3");
@@ -65,4 +66,14 @@ const createWorkElement = (element) => {
 projects.slice(0, 3).forEach((element) => {
   const project = createWorkElement(element);
   topImages.appendChild(project);
+});
+
+projects.slice(3, 5).forEach((element) => {
+  const project = createWorkElement(element);
+  centerImages.appendChild(project);
+});
+
+projects.slice(5, 7).forEach((element) => {
+  const project = createWorkElement(element);
+  bottomImages.appendChild(project);
 });

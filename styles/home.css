@@ -105,8 +105,8 @@
   width: 100%;
 }
 .home_works_top {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 3.938rem;
 }
 .home_works_top div:first-child {
@@ -114,4 +114,16 @@
 }
 .home_works_top div:nth-child(2) {
   margin-top: 5%;
+}
+.home_works_center {
+  grid-template-columns: 1fr 0.75fr;
+}
+.home_works_bottom {
+  grid-template-columns: 0.75fr 1fr;
+}
+.home_works .works_flex {
+  display: grid;
+  align-items: center;
+  margin-top: 9.5rem;
+  gap: 9.938rem;
 }/*# sourceMappingURL=home.css.map */
