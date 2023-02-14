@@ -36,4 +36,45 @@
   position: absolute;
   top: -9rem;
   left: -4rem;
+  pointer-events: none;
+}
+.about_profile {
+  padding: 8rem 7rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.about_profile h4 {
+  font-size: max(24px, 1.5rem);
+  text-transform: uppercase;
+}
+.about_profile h2 {
+  font-size: max(64px, 4rem);
+  text-transform: uppercase;
+  padding-top: 0.625rem;
+}
+.about_profile img {
+  width: 100%;
+  margin-top: 3rem;
+}
+.about_profile p {
+  font-size: max(16px, 1rem);
+  text-align: center;
+  margin-top: 3rem;
+  line-height: 28px;
+}
+.about_clients {
+  background: rgba(5, 5, 5, 0.6);
+  padding: 5.875rem 3.75rem;
+}
+.about_clients h3 {
+  text-align: center;
+  font-size: max(48px, 3rem);
+}
+.about_clients p {
+  font-size: max(18px, 1.125rem);
+  line-height: 32px;
+  text-align: center;
+  max-width: max(474px, 29.625rem);
+  margin: 0.5rem auto;
 }/*# sourceMappingURL=about.css.map */
