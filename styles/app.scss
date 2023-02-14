@@ -70,6 +70,7 @@ button {
   flex-direction: column;
   padding: 8rem 0;
   position: relative;
+  overflow: hidden;
   h3 {
     font-size: max(54px, 3.375rem);
     a {
@@ -104,5 +105,40 @@ button {
     position: absolute;
     right: -13rem;
     bottom: -35rem;
+  }
+}
+
+.footer {
+  padding: 8rem 6.68rem 3.75rem;
+  background: #000000;
+  position: relative;
+  overflow: hidden;
+  &_hire {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    h1 {
+      color: #0ac4ff;
+      font-size: max(122px, 7.625rem);
+    }
+    svg {
+      position: absolute;
+    }
+  }
+  &_rights {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5rem;
+    h4 {
+      font-size: max(16px, 1rem);
+      font-family: "Roboto", sans-serif;
+    }
+  }
+  .circle {
+    position: absolute;
+    top: -9rem;
+    left: -4rem;
   }
 }
