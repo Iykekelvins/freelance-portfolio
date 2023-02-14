@@ -1,12 +1,10 @@
-.home {
-  position: relative;
-}
 .home_hero {
   position: relative;
   min-height: calc(100vh - 86px);
   background-image: url(../assets/images/Pattern.png);
   background-position: center 190px;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 .home_hero_left_circle {
   position: absolute;
@@ -76,4 +74,44 @@
 .home_hero_socials li a {
   color: #ffffff;
   font-size: max(16px, 1rem);
+}
+.home_works {
+  background: #232323;
+  border-radius: 27px;
+  padding: 8rem 6.563rem;
+}
+.home_works h1 {
+  font-size: max(64px, 4rem);
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.home_works_project {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.home_works_project span {
+  font-size: max(54px, 3.375rem);
+}
+.home_works_project h3 {
+  font-size: max(28px, 1.75rem);
+  letter-spacing: 0.05em;
+}
+.home_works_project p {
+  margin-top: -1rem;
+  font-size: max(16px, 1rem);
+}
+.home_works_project img {
+  width: 100%;
+}
+.home_works_top {
+  display: flex;
+  justify-content: space-between;
+  gap: 3.938rem;
+}
+.home_works_top div:first-child {
+  margin-top: 10%;
+}
+.home_works_top div:nth-child(2) {
+  margin-top: 5%;
 }/*# sourceMappingURL=home.css.map */

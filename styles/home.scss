@@ -1,11 +1,11 @@
 .home {
-  position: relative;
   &_hero {
     position: relative;
     min-height: calc(100vh - 86px);
     background-image: url(../assets/images/Pattern.png);
     background-position: center 190px;
     background-repeat: no-repeat;
+    overflow: hidden;
     &_left_circle {
       position: absolute;
       top: -9rem;
@@ -73,6 +73,48 @@
       li a {
         color: #ffffff;
         font-size: max(16px, 1rem);
+      }
+    }
+  }
+  &_works {
+    background: #232323;
+    border-radius: 27px;
+    padding: 8rem 6.563rem;
+    h1 {
+      font-size: max(64px, 4rem);
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    &_project {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      span {
+        font-size: max(54px, 3.375rem);
+      }
+      h3 {
+        font-size: max(28px, 1.75rem);
+        letter-spacing: 0.05em;
+      }
+      p {
+        margin-top: -1rem;
+        font-size: max(16px, 1rem);
+      }
+      img {
+        width: 100%;
+      }
+    }
+    &_top {
+      display: flex;
+      justify-content: space-between;
+      gap: 3.938rem;
+      div {
+        &:first-child {
+          margin-top: 10%;
+        }
+        &:nth-child(2) {
+          margin-top: 5%;
+        }
       }
     }
   }
