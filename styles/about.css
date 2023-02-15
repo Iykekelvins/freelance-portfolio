@@ -77,4 +77,11 @@
   text-align: center;
   max-width: max(474px, 29.625rem);
   margin: 0.5rem auto;
+}
+.about_clients_logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 3rem;
 }/*# sourceMappingURL=about.css.map */
