@@ -28,17 +28,24 @@
         text-transform: uppercase;
         letter-spacing: 0.05em;
       }
+      &_img {
+        overflow: hidden;
+        height: 30%;
+      }
       &_info {
         display: flex;
         justify-content: space-between;
-        margin-top: 3.875rem;
+        margin-top: 1.875rem;
         h2 {
           color: #0af0ff;
           font-size: max(64px, 4rem);
           padding-top: 57px;
         }
         div {
-          margin-top: 57px;
+          &:last-child {
+            margin-top: 57px;
+          }
+
           p {
             font-size: max(24px, 1.5rem);
 
@@ -89,7 +96,7 @@
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      span {
+      .number {
         font-size: max(54px, 3.375rem);
       }
       h3 {

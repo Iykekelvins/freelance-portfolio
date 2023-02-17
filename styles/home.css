@@ -29,17 +29,21 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+.home_hero_content_img {
+  overflow: hidden;
+  height: 30%;
+}
 .home_hero_content_info {
   display: flex;
   justify-content: space-between;
-  margin-top: 3.875rem;
+  margin-top: 1.875rem;
 }
 .home_hero_content_info h2 {
   color: #0af0ff;
   font-size: max(64px, 4rem);
   padding-top: 57px;
 }
-.home_hero_content_info div {
+.home_hero_content_info div:last-child {
   margin-top: 57px;
 }
 .home_hero_content_info div p {
@@ -89,7 +93,7 @@
   flex-direction: column;
   gap: 2rem;
 }
-.home_works_project span {
+.home_works_project .number {
   font-size: max(54px, 3.375rem);
 }
 .home_works_project h3 {
