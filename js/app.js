@@ -1,16 +1,6 @@
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(MotionPathPlugin);
 Splitting();
-
-gsap.to(".home_hero_content_img", {
-  scrollTrigger: {
-    trigger: ".home_hero_content_img",
-    // markers: true,
-    start: "top center",
-  },
-  height: "100%",
-  duration: 1,
-  ease: "power1.out",
-});
 
 const lenis = new Lenis({
   duration: 1.2,
@@ -40,7 +30,8 @@ gsap
       ".home_hero_content h1 .word",
       ".home_hero_content h2 .word",
       ".home_hero_content p .word",
-      // ".home_hero_skills p .word",
+      ".home_works_project  .word",
+      ".connect  .word",
     ],
     {
       overflow: "hidden",
@@ -51,7 +42,7 @@ gsap
       ".home_hero_content h1 .char",
       ".home_hero_content p .char",
       ".home_hero_content h2 .char",
-      ,
+      ".connect  .char",
     ],
     {
       yPercent: 100,
@@ -61,7 +52,7 @@ gsap
     xPercent: 1000,
     opacity: 0,
   })
-  .to(".home_hero_content h1 .char", {
+  .to(".home_hero_content h1 .word .char", {
     yPercent: 0,
     stagger: 0.1,
   })
@@ -70,26 +61,16 @@ gsap
   })
   .to([".home_hero_skills p .char", ".home_hero_socials li .char"], {
     xPercent: 0,
-    stagger: 0.05,
+    stagger: 0.02,
     opacity: 1,
   })
-  .set(
-    ".home_works_project  .word",
-    // ".home_works_center .home_works_project .number .word",
-    // ".home_works_bottom .home_works_project .number .word",
-    // ".home_works_project h3 .word",
-
-    {
-      overflow: "hidden",
-    }
-  )
   .set(".home_works_project .char", {
     yPercent: 100,
   });
 
 ScrollTrigger.create({
   trigger: ".home_works_top",
-  start: "top +=500",
+  start: "top center",
   once: true,
   // markers: true,
   onEnter: () => {
@@ -103,7 +84,7 @@ ScrollTrigger.create({
 
 ScrollTrigger.create({
   trigger: ".home_works_center",
-  start: "top +=500",
+  start: "top center",
   once: true,
   // markers: true,
   onEnter: () => {
@@ -117,7 +98,7 @@ ScrollTrigger.create({
 
 ScrollTrigger.create({
   trigger: ".home_works_bottom",
-  start: "top +=500",
+  start: "top center",
   once: true,
   // markers: true,
   onEnter: () => {
@@ -194,7 +175,7 @@ ScrollTrigger.create({
   start: "top bottom",
   once: true,
   // markers: true,
-  // scrub: true,
+  scrub: true,
   onEnter: () => {
     gsap.to(".home_works_center .home_works_project p .char", {
       yPercent: 0,
@@ -214,6 +195,21 @@ ScrollTrigger.create({
       yPercent: 0,
       ease: "power1.out",
       stagger: 0.025,
+    });
+  },
+});
+
+ScrollTrigger.create({
+  trigger: ".connect",
+  start: "top center",
+  once: true,
+  // markers: true,
+  // scrub: true,
+  onEnter: () => {
+    gsap.to(".char", {
+      yPercent: 0,
+      ease: "power1.out",
+      // stagger: 0.025,
     });
   },
 });

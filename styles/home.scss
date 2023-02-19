@@ -2,10 +2,14 @@
   &_hero {
     position: relative;
     min-height: calc(100vh - 86px);
-    background-image: url(../assets/images/Pattern.png);
+    // background-image: url(../assets/images/Pattern.png);
     background-position: center 190px;
     background-repeat: no-repeat;
     overflow: hidden;
+    .path {
+      position: absolute;
+      z-index: -1;
+    }
     &_left_circle {
       position: absolute;
       top: -9rem;
@@ -17,20 +21,21 @@
       bottom: -30rem;
     }
     &_content {
-      display: grid;
+      display: flex;
+      align-items: center;
       justify-content: center;
       flex-direction: column;
       padding: 8rem 0;
       h1 {
         font-size: max(190px, 11.875rem);
         text-align: center;
-        line-height: 171px;
+        line-height: 195px;
         text-transform: uppercase;
         letter-spacing: 0.05em;
       }
       &_img {
-        overflow: hidden;
-        height: 30%;
+        // overflow: hidden;
+        // height: 30%;
       }
       &_info {
         display: flex;
