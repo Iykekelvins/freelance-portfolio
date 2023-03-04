@@ -59,6 +59,11 @@ button {
   cursor: pointer;
 }
 
+svg,
+span {
+  pointer-events: none;
+}
+
 .navbar {
   display: flex;
   align-items: center;
@@ -86,6 +91,10 @@ button {
   }
 }
 
+.word {
+  overflow: hidden;
+}
+
 .connect {
   display: flex;
   align-items: center;
@@ -95,7 +104,7 @@ button {
   overflow: hidden;
   text-align: center;
   h3 {
-    font-size: max(54px, 3.375rem);
+    font-size: 4vw;
     a {
       color: #0ac4ff;
       text-transform: uppercase;
@@ -134,6 +143,9 @@ button {
       font-size: max(24px, 1.5rem);
       font-family: "Roboto", sans-serif;
     }
+    @media (max-width: 480px) {
+      flex-direction: column;
+    }
   }
   .circle {
     position: absolute;
@@ -154,7 +166,7 @@ button {
     position: relative;
     h1 {
       color: #0ac4ff;
-      font-size: max(122px, 7.625rem);
+      font-size: 10vw;
     }
     svg {
       position: absolute;
@@ -169,11 +181,19 @@ button {
       font-size: max(16px, 1rem);
       font-family: "Roboto", sans-serif;
     }
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
   }
   .circle {
     position: absolute;
     top: -9rem;
     left: -4rem;
+  }
+  @media (max-width: 480px) {
+    padding: 4rem 2.625rem;
   }
 }
 
@@ -189,6 +209,7 @@ button {
   transition-property: background, transform;
   transform-origin: 75% 75%;
   mix-blend-mode: difference;
+  z-index: 5;
 }
 
 .page {
@@ -210,6 +231,9 @@ button {
     }
     .word {
       overflow: hidden;
+      .char {
+        transform: translateY(100%);
+      }
     }
   }
 }
@@ -222,6 +246,7 @@ button {
     background-position: center 190px;
     background-repeat: no-repeat;
     overflow: hidden;
+
     .path {
       position: absolute;
       z-index: -1;
@@ -242,12 +267,17 @@ button {
       justify-content: center;
       flex-direction: column;
       padding: 8rem 0;
+      max-width: 68rem;
+      margin: auto;
       h1 {
-        font-size: max(190px, 11.875rem);
+        font-size: 15vw;
         text-align: center;
         line-height: 90%;
         text-transform: uppercase;
         letter-spacing: 0.05em;
+        .char {
+          transform: translateY(100%);
+        }
       }
       &_img {
         overflow: hidden;
@@ -266,10 +296,14 @@ button {
         display: flex;
         justify-content: space-between;
         margin-top: 1.875rem;
+        width: 100%;
         h2 {
           color: #0af0ff;
           font-size: max(64px, 4rem);
           padding-top: 57px;
+          .char {
+            transform: translateY(100%);
+          }
         }
         div {
           &:last-child {
@@ -282,6 +316,15 @@ button {
             &:first-child {
               padding-bottom: 1.5rem;
             }
+            .char {
+              transform: translateY(100%);
+            }
+          }
+        }
+        @media (max-width: 820px) {
+          flex-direction: column;
+          img {
+            width: 100%;
           }
         }
       }
@@ -297,6 +340,14 @@ button {
       p {
         font-size: max(16px, 1rem);
       }
+
+      @media (max-width: 820px) {
+        left: -9rem;
+      }
+      @media (max-width: 480px) {
+        position: unset;
+        transform: rotate(0);
+      }
     }
     &_socials {
       position: absolute;
@@ -311,16 +362,27 @@ button {
         color: #ffffff;
         font-size: max(16px, 1rem);
       }
+
+      @media (max-width: 480px) {
+        position: unset;
+        transform: rotate(0);
+      }
     }
   }
   &_works {
     background: #232323;
     border-radius: 27px;
     padding: 8rem 6.563rem;
+    .char {
+      transform: translateY(100%);
+    }
     h1 {
       font-size: max(64px, 4rem);
       text-align: center;
       margin-bottom: 3.5rem;
+      @media (max-width: 480px) {
+        font-size: 9vw;
+      }
     }
     &_project {
       display: flex;
@@ -366,12 +428,31 @@ button {
           margin-top: 10%;
         }
       }
+      @media (max-width: 820px) {
+        grid-template-columns: 1fr;
+        gap: 9.938rem;
+        div {
+          margin-top: 0 !important;
+        }
+      }
     }
     &_center {
       grid-template-columns: 1fr 0.75fr;
+      @media (max-width: 820px) {
+        grid-template-columns: 1fr;
+        div {
+          margin-top: 0 !important;
+        }
+      }
     }
     &_bottom {
       grid-template-columns: 0.75fr 1fr;
+      @media (max-width: 820px) {
+        grid-template-columns: 1fr;
+        div {
+          margin-top: 0 !important;
+        }
+      }
     }
     .works_flex {
       display: grid;
@@ -379,6 +460,13 @@ button {
       margin-top: 9.5rem;
       gap: 9.938rem;
     }
+    @media (max-width: 480px) {
+      padding-left: 2.625rem;
+      padding-right: 2.625rem;
+    }
+  }
+  .word {
+    overflow: hidden;
   }
 }
 
