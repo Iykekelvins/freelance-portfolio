@@ -98,6 +98,7 @@ const heroTl = gsap.timeline({
 heroTl.to(".home_hero_content h1 .char", {
   y: 0,
   stagger: 0.1,
+  opacity: 1,
 });
 
 gsap.to(".skill_svg", {
@@ -178,7 +179,7 @@ homeProjects.forEach((project) => {
   const text = project.querySelectorAll("p .char");
   ScrollTrigger.create({
     trigger: project,
-    start: "top bottom-=600px",
+    start: "top center",
     once: true,
     // markers: true,
     onEnter: () => {

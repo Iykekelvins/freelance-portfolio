@@ -476,6 +476,9 @@ span {
   }
   .word {
     overflow: hidden;
+    .char {
+      opacity: 0;
+    }
   }
 }
 
