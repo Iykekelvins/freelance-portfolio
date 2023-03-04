@@ -178,7 +178,7 @@ homeProjects.forEach((project) => {
   const text = project.querySelectorAll("p .char");
   ScrollTrigger.create({
     trigger: project,
-    start: "top center",
+    start: "top bottom-=600px",
     once: true,
     // markers: true,
     onEnter: () => {

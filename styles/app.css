@@ -324,8 +324,15 @@ span {
   .home_hero_content_info {
     flex-direction: column;
   }
+  .home_hero_content_info h2,
+  .home_hero_content_info p {
+    margin-left: 2.625rem;
+  }
   .home_hero_content_info img {
     width: 100%;
+  }
+  .home_hero_content_info div:last-child {
+    margin-top: 30px;
   }
 }
 .home_hero_skills {
