@@ -72,6 +72,8 @@ const createWorkElement = (element) => {
   return project;
 };
 
+// run whatever we need
+
 projects.slice(0, 3).forEach((element) => {
   const project = createWorkElement(element);
 
@@ -89,7 +91,7 @@ projects.slice(5, 7).forEach((element) => {
   Splitting();
 });
 
-const heroTl = gsap.timeline({
+let heroTl = gsap.timeline({
   defaults: {
     ease: "power2.inOut",
   },
@@ -100,6 +102,16 @@ heroTl.to(".home_hero_content h1 .char", {
   stagger: 0.1,
   opacity: 1,
 });
+
+heroTl.fromTo(
+  [".home_hero_skills .char", ".home_hero_socials .char"],
+  {
+    y: 100,
+  },
+  {
+    y: 0,
+  }
+);
 
 gsap.to(".skill_svg", {
   duration: 5,
@@ -123,11 +135,11 @@ ScrollTrigger.create({
   once: true,
   // markers: true,
   onEnter: () => {
-    const heroTl = gsap.timeline({
-      defaults: {
-        ease: "power2.inOut",
-      },
-    });
+    // const heroTl = gsap.timeline({
+    //   defaults: {
+    //     ease: "power2.inOut",
+    //   },
+    // });
     heroTl.to(".home_hero_content_info .char", {
       y: 0,
     });

@@ -33,21 +33,51 @@ function cursor(e) {
 
 window.addEventListener("mousemove", cursor);
 
+const onChange = async (url) => {
+  const res = await window.fetch(url);
+
+  if (res.status === 200) {
+    // const html = await res.text();
+    // const div = document.createElement("div");
+
+    // if (push) {
+    //   window.history.pushState({}, "", url);
+    // }
+    // console.log(url);
+
+    // div.innerHTML = html;
+    const body = document.querySelector("body");
+    const template = body.getAttribute("data-page");
+    body.setAttribute("data-page", "home");
+  }
+};
+// page transitions
 links.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
+
     const tl = gsap.timeline({
       defaults: {
         ease: "power2.inOut",
       },
     });
-    // leave animation
+
     tl.fromTo(main, 0.75, { opacity: 1 }, { opacity: 0 });
     tl.fromTo(".page", 0.75, { y: "-100%" }, { y: "0%" });
-    tl.to(".page_content .word span", 0.75, { y: "0%", stagger: 0.15 });
+    tl.fromTo(
+      ".page_content .word span",
+      0.75,
+      {
+        y: "100%",
+      },
+      {
+        y: "0%",
+        stagger: 0.15,
+        ease: "power2.inOut",
+      }
+    );
 
-    // enter animation
-    tl.to(".page_content .word span", 0.75, {
+    tl.to(".page_content .word span", {
       y: "-100%",
       stagger: 0.15,
       ease: "power2.inOut",
@@ -57,7 +87,8 @@ links.forEach((link) => {
     tl.to(".page", 0.75, {
       y: "100%",
       onComplete: () => {
-        window.location.assign(e.target.href);
+        const { href } = e.target;
+        onChange(href);
       },
     });
 
