@@ -18,8 +18,8 @@
 
     <title>Ryan Campbell Portfolio</title>
   </head>
-  <body data-page="about">
-    <main class="about">
+  <body data-barba="wrapper">
+    <main class="about" data-barba="container" data-barba-namespace="about">
       <nav class="navbar">
         <h4>Availabe for work</h4>
         <h2>RC.</h2>
@@ -37,6 +37,7 @@
           </svg>
         </button>
       </nav>
+
       <header class="about_header">
         <div class="about_header_left">
           <svg
@@ -287,9 +288,10 @@
         </p>
         <div class="about_clients_logos"></div>
       </section>
+
       <section class="connect">
         <div class="connect_top">
-          <h3 data-splitting="chars">I am a Photographer by</h3>
+          <h3 data-splitting="chars">I am a Photographer by day</h3>
           <svg
             width="109"
             height="109"
@@ -318,7 +320,7 @@
           </svg>
         </div>
         <h3 data-splitting="chars">
-          And an Adventure by night. <a href="">Explore this space</a> with me.
+          And an Adventurer by night. <a href="">Explore this space</a> with me.
         </h3>
         <div class="connect_bottom">
           <p>Follow @Ryan Campbell</p>
@@ -446,11 +448,7 @@
         <h1 data-splitting="chars">RC</h1>
       </div>
     </div>
-
     <script src="https://unpkg.com/@barba/core"></script>
-
-    <!-- jsdelivr -->
-    <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
     <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@0.2.28/bundled/lenis.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
@@ -463,7 +461,5 @@
     ></script>
     <script src="../app.js"></script>
     <script src="/js/about.js"></script>
-
-    <!-- <script src="locomotive-scroll.min.js"></script> -->
   </body>
 </html>
