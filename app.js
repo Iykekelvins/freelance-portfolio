@@ -136,7 +136,7 @@ function animateHero() {
   );
   ScrollTrigger.create({
     trigger: ".home_hero_content_info",
-    start: "top bottom-=200px",
+    start: "top center",
     once: true,
     // markers: true,
     onEnter: () => {
