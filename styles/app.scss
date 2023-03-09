@@ -91,10 +91,6 @@ span {
   }
 }
 
-.word {
-  overflow: hidden;
-}
-
 .connect {
   display: flex;
   align-items: center;
@@ -171,7 +167,7 @@ span {
     position: relative;
     h1 {
       color: #0ac4ff;
-      font-size: 10vw;
+      font-size: 7rem;
     }
     svg {
       position: absolute;
@@ -496,6 +492,7 @@ span {
 
 // about styles
 .about {
+  overflow: hidden;
   &_header {
     display: flex;
     align-items: center;
@@ -504,11 +501,15 @@ span {
     padding: 8rem 7rem;
     position: relative;
     h2 {
-      font-size: max(74px, 4.625rem);
+      font-size: 4.625rem;
       text-transform: uppercase;
+      .word {
+        overflow: hidden;
+      }
     }
     &_left {
-      div {
+      &_cover {
+        overflow: hidden;
         display: flex;
         align-items: center;
         gap: 0.625rem;
@@ -525,6 +526,7 @@ span {
     }
     &_right {
       margin-right: 4.375rem;
+      animation: rotate 15s infinite linear;
     }
     .right {
       position: absolute;
@@ -537,6 +539,25 @@ span {
       left: -4rem;
       pointer-events: none;
     }
+    @media (max-width: 800px) {
+      padding-left: 2.625rem;
+      padding-right: 2.625rem;
+      justify-content: center;
+      .right,
+      .left {
+        display: none;
+      }
+    }
+    @media (max-width: 480px) {
+      .about_header_left {
+        div {
+          justify-content: center;
+        }
+      }
+      .about_header_right {
+        display: none;
+      }
+    }
   }
   &_profile {
     padding: 8rem 7rem;
@@ -548,7 +569,7 @@ span {
       text-transform: uppercase;
     }
     h2 {
-      font-size: max(64px, 4rem);
+      font-size: 4rem;
       text-transform: uppercase;
       padding-top: 0.625rem;
     }
@@ -561,6 +582,14 @@ span {
       text-align: center;
       margin-top: 3rem;
       line-height: 28px;
+    }
+    .word {
+      overflow: hidden;
+    }
+    @media (max-width: 800px) {
+      padding-left: 2.625rem;
+      padding-right: 2.625rem;
+      text-align: center;
     }
   }
   &_clients {
@@ -581,8 +610,22 @@ span {
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-wrap: wrap;
       margin-top: 3rem;
+      img {
+        opacity: 0;
+      }
+      @media (max-width: 1024px) {
+        flex-wrap: wrap;
+      }
     }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

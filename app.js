@@ -35,6 +35,7 @@ window.addEventListener("mousemove", cursor);
 
 let heroTl;
 let projectTl;
+let aboutTl;
 
 const projects = [
   {
@@ -135,7 +136,7 @@ function animateHero() {
   );
   ScrollTrigger.create({
     trigger: ".home_hero_content_info",
-    start: "top center",
+    start: "top bottom-=200px",
     once: true,
     // markers: true,
     onEnter: () => {
@@ -169,10 +170,14 @@ function animateHero() {
   });
 }
 
-function animateHomepage() {
+function getHomepageInfo() {
   const topProjects = document.querySelector(".home_works_top");
   const centerProjects = document.querySelector(".home_works_center");
   const bottomProjects = document.querySelector(".home_works_bottom");
+  const year = document.querySelector(".year");
+  year.dataset.splitting = "chars";
+
+  year.innerText = new Date().getFullYear();
 
   projects.slice(0, 3).forEach((element) => {
     const project = createWorkElement(element);
@@ -285,6 +290,74 @@ function getAboutPageInfo() {
     clientLogos.appendChild(img);
     // console.log(img);
   });
+
+  aboutTl = gsap.timeline({
+    defaults: {
+      ease: "power2.inOut",
+    },
+  });
+
+  aboutTl.fromTo(
+    [".about_header h2 .char"],
+    {
+      y: "100%",
+    },
+    {
+      y: "0",
+    }
+  );
+  aboutTl.fromTo(
+    [".about_header_left_cover a, .about_header_left_cover svg"],
+    {
+      y: "100%",
+      opacity: 0,
+    },
+    {
+      y: "0",
+      opacity: 1,
+    },
+    "-=0.25"
+  );
+
+  const clienLogos = document.querySelectorAll(".about_clients_logos img");
+
+  clienLogos.forEach((logo) => {
+    ScrollTrigger.create({
+      trigger: logo,
+      start: "top bottom-=100px",
+      once: true,
+      // markers: true,
+      onEnter: () => {
+        gsap.fromTo(
+          logo,
+          {
+            opacity: 0,
+          },
+          {
+            opacity: 1,
+          }
+        );
+      },
+    });
+  });
+
+  ScrollTrigger.create({
+    trigger: ".about_profile",
+    start: "top bottom-=100px",
+    once: true,
+    // markers: true,
+    onEnter: () => {
+      aboutTl.fromTo(
+        [".about_profile h4 .char, .about_profile h2 .char"],
+        {
+          y: "100%",
+        },
+        {
+          y: "0",
+        }
+      );
+    },
+  });
 }
 
 barba.init({
@@ -292,7 +365,7 @@ barba.init({
     {
       namespace: "home",
       beforeEnter() {
-        animateHomepage();
+        getHomepageInfo();
         animateHero();
 
         ScrollTrigger.create({
@@ -306,19 +379,12 @@ barba.init({
             });
           },
         });
-        ScrollTrigger.refresh(true);
       },
-      beforeLeave() {
-        // heroTl.kill();
-        // projectTl.kill();
-      },
-      // afterEnter() {
-      //   animateHomepage();
-      // },
     },
     {
       namespace: "about",
       beforeEnter() {
+        Splitting();
         getAboutPageInfo();
       },
       beforeLeave() {},
@@ -390,7 +456,9 @@ barba.init({
           }
         );
         done();
+        ScrollTrigger.refresh(true);
         heroTl.delay(2);
+        aboutTl.delay(2);
       },
     },
   ],

@@ -90,10 +90,6 @@ span {
   letter-spacing: 0.15em;
 }
 
-.word {
-  overflow: hidden;
-}
-
 .connect {
   display: flex;
   align-items: center;
@@ -104,7 +100,7 @@ span {
   text-align: center;
 }
 .connect h3 {
-  font-size: 4vw;
+  font-size: 3.5vw;
 }
 .connect h3 a {
   color: #0ac4ff;
@@ -174,7 +170,7 @@ span {
 }
 .footer_hire h1 {
   color: #0ac4ff;
-  font-size: 10vw;
+  font-size: 7rem;
 }
 .footer_hire svg {
   position: absolute;
@@ -294,7 +290,7 @@ span {
   letter-spacing: 0.05em;
 }
 .home_hero_content h1 .char {
-  /* transform: translateY(100%); */
+  transform: translateY(100%);
 }
 .home_hero_content_img {
   overflow: hidden;
@@ -507,6 +503,9 @@ span {
   overflow: hidden;
 }
 
+.about {
+  overflow: hidden;
+}
 .about_header {
   display: flex;
   align-items: center;
@@ -516,25 +515,30 @@ span {
   position: relative;
 }
 .about_header h2 {
-  font-size: max(74px, 4.625rem);
+  font-size: 4.625rem;
   text-transform: uppercase;
 }
-.about_header_left div {
+.about_header h2 .word {
+  overflow: hidden;
+}
+.about_header_left_cover {
+  overflow: hidden;
   display: flex;
   align-items: center;
   gap: 0.625rem;
   margin-top: 1.5rem;
 }
-.about_header_left div a {
+.about_header_left_cover a {
   color: #fff;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
 }
-.about_header_left div a:last-child {
+.about_header_left_cover a:last-child {
   color: #0af0ff;
 }
 .about_header_right {
   margin-right: 4.375rem;
+  animation: rotate 15s infinite linear;
 }
 .about_header .right {
   position: absolute;
@@ -547,6 +551,25 @@ span {
   left: -4rem;
   pointer-events: none;
 }
+@media (max-width: 800px) {
+  .about_header {
+    padding-left: 2.625rem;
+    padding-right: 2.625rem;
+    justify-content: center;
+  }
+  .about_header .right,
+  .about_header .left {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .about_header .about_header_left div {
+    justify-content: center;
+  }
+  .about_header .about_header_right {
+    display: none;
+  }
+}
 .about_profile {
   padding: 8rem 7rem;
   display: flex;
@@ -558,7 +581,7 @@ span {
   text-transform: uppercase;
 }
 .about_profile h2 {
-  font-size: max(64px, 4rem);
+  font-size: 4rem;
   text-transform: uppercase;
   padding-top: 0.625rem;
 }
@@ -571,6 +594,16 @@ span {
   text-align: center;
   margin-top: 3rem;
   line-height: 28px;
+}
+.about_profile .word {
+  overflow: hidden;
+}
+@media (max-width: 800px) {
+  .about_profile {
+    padding-left: 2.625rem;
+    padding-right: 2.625rem;
+    text-align: center;
+  }
 }
 .about_clients {
   background: rgba(5, 5, 5, 0.6);
@@ -591,6 +624,22 @@ span {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   margin-top: 3rem;
+}
+.about_clients_logos img {
+  opacity: 0;
+}
+@media (max-width: 1024px) {
+  .about_clients_logos {
+    flex-wrap: wrap;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=app.css.map */
