@@ -36,6 +36,7 @@ window.addEventListener("mousemove", cursor);
 let heroTl;
 let projectTl;
 let aboutTl;
+let contactTl;
 
 const projects = [
   {
@@ -270,7 +271,6 @@ function getHomepageInfo() {
     });
   });
 }
-
 function getAboutPageInfo() {
   const clientLogos = document.querySelector(".about_clients_logos");
 
@@ -284,12 +284,6 @@ function getAboutPageInfo() {
   ];
 
   // append client logos
-  logos.forEach((logo) => {
-    const img = document.createElement("img");
-    img.src = logo;
-    clientLogos.appendChild(img);
-    // console.log(img);
-  });
 
   aboutTl = gsap.timeline({
     defaults: {
@@ -298,7 +292,7 @@ function getAboutPageInfo() {
   });
 
   aboutTl.fromTo(
-    [".about_header h2 .char"],
+    ".about_header h2 .char",
     {
       y: "100%",
     },
@@ -318,6 +312,13 @@ function getAboutPageInfo() {
     },
     "-=0.25"
   );
+
+  logos.forEach((logo) => {
+    const img = document.createElement("img");
+    img.src = logo;
+    clientLogos.appendChild(img);
+    // console.log(img);
+  });
 
   const clienLogos = document.querySelectorAll(".about_clients_logos img");
 
@@ -359,6 +360,35 @@ function getAboutPageInfo() {
     },
   });
 }
+function getContactPageInfo() {
+  contactTl = gsap.timeline({
+    defaults: {
+      ease: "power2.inOut",
+    },
+  });
+
+  contactTl.fromTo(
+    ".contact_header h2 .char",
+    {
+      y: "100%",
+    },
+    {
+      y: "0",
+    }
+  );
+  contactTl.fromTo(
+    [".contact_header_left_cover a, .contact_header_left_cover svg"],
+    {
+      y: "100%",
+      opacity: 0,
+    },
+    {
+      y: "0",
+      opacity: 1,
+    },
+    "-=0.25"
+  );
+}
 
 barba.init({
   views: [
@@ -387,8 +417,13 @@ barba.init({
         Splitting();
         getAboutPageInfo();
       },
-      beforeLeave() {},
-      afterEnter() {},
+    },
+    {
+      namespace: "contact",
+      beforeEnter() {
+        Splitting();
+        getContactPageInfo();
+      },
     },
   ],
   transitions: [
@@ -449,16 +484,13 @@ barba.init({
           { opacity: 0 },
           {
             opacity: 1,
-            // onComplete: () => {
-            //   history.go(0);
-            //   done;
-            // },
           }
         );
         done();
         ScrollTrigger.refresh(true);
         heroTl.delay(2);
         aboutTl.delay(2);
+        contactTl.delay(2);
       },
     },
   ],
