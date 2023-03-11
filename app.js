@@ -235,13 +235,13 @@ const getHomepageInfo = () => {
     const text = project.querySelectorAll("p .char");
     ScrollTrigger.create({
       trigger: project,
-      start: "top center",
+      start: "top bottom-=200",
       once: true,
       // markers: true,
       onEnter: () => {
         projectTl = gsap.timeline({
           defaults: {
-            ease: "power2.inOut",
+            ease: "power2.out",
           },
         });
 
@@ -271,13 +271,21 @@ const getHomepageInfo = () => {
           },
           "-=0.75"
         );
-        projectTl.to(
+      },
+    });
+    ScrollTrigger.create({
+      trigger: info,
+      start: "top bottom-=100",
+      once: true,
+      // markers: true,
+      onEnter: () => {
+        gsap.to(
           [info, text],
           {
             y: 0,
             stagger: 0.05,
-          },
-          "-=0.5"
+          }
+          // "-=0.5"
         );
       },
     });
@@ -299,7 +307,7 @@ const getAboutPageInfo = () => {
 
   aboutTl = gsap.timeline({
     defaults: {
-      ease: "power2.inOut",
+      ease: "power2.out",
     },
   });
 
@@ -375,7 +383,7 @@ const getAboutPageInfo = () => {
 const getContactPageInfo = () => {
   contactTl = gsap.timeline({
     defaults: {
-      ease: "power2.inOut",
+      ease: "power2.out",
     },
   });
 
@@ -410,7 +418,7 @@ const menuIn = () => {
   document.body.style.position = "fixed";
   const menuTl = gsap.timeline({
     defaults: {
-      ease: "power2.inOut",
+      ease: "power2.out",
       // oncom
     },
   });
@@ -456,7 +464,7 @@ const menuOut = () => {
   document.body.style.position = "";
   const menuTl = gsap.timeline({
     defaults: {
-      // ease: "power2.inOut",
+      // ease: "power2.out",
     },
   });
   menuTl.to(".nav-menu .link-cover", {
@@ -534,7 +542,7 @@ barba.init({
 
         const tl = gsap.timeline({
           defaults: {
-            ease: "power2.inOut",
+            ease: "power2.out",
           },
         });
 
@@ -549,14 +557,14 @@ barba.init({
           {
             y: "0%",
             stagger: 0.15,
-            ease: "power2.inOut",
+            ease: "power2.out",
             onComplete: done,
           }
         );
         document.body.style.position = "";
-        // setTimeout(() => {
-        //   menuOut();
-        // }, 1500);
+        setTimeout(() => {
+          menuOut();
+        }, 100);
       },
       enter(data) {
         window.scrollTo(0, 0);
@@ -565,7 +573,7 @@ barba.init({
 
         const tl = gsap.timeline({
           defaults: {
-            ease: "power2.inOut",
+            ease: "power2.out",
           },
         });
 
@@ -578,7 +586,7 @@ barba.init({
           {
             y: "-100%",
             stagger: 0.15,
-            ease: "power2.inOut",
+            ease: "power2.out",
             // onComplete: done,
           }
         );
