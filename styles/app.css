@@ -165,6 +165,11 @@ span {
 .nav-menu .close-btn .line-2 {
   transform: rotate(-45deg) translateX(100%);
 }
+@media (max-width: 480px) {
+  .nav-menu .close-btn {
+    top: 5.5rem;
+  }
+}
 
 .connect {
   display: flex;
