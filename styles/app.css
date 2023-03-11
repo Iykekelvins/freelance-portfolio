@@ -70,9 +70,10 @@ span {
   padding: 0 6.75rem;
   background: #000000;
   height: 86px;
-  position: fixed;
+  position: sticky;
+  top: 0;
+  width: 100vw;
   z-index: 4;
-  width: 100%;
 }
 .navbar h4,
 .navbar button {
@@ -92,23 +93,6 @@ span {
   text-transform: uppercase;
   letter-spacing: 0.15em;
 }
-.navbar .close-btn {
-  position: absolute;
-  top: 3rem;
-  right: 2.5rem;
-}
-.navbar .close-btn .line {
-  width: 50px;
-  height: 1.5px;
-  background: #fff;
-  opacity: 0;
-}
-.navbar .close-btn .line-1 {
-  transform: rotate(45deg) translateX(-100%);
-}
-.navbar .close-btn .line-2 {
-  transform: rotate(-45deg) translateX(100%);
-}
 @media (max-width: 800px) {
   .navbar {
     padding-left: 2.625rem;
@@ -117,28 +101,31 @@ span {
 }
 
 .nav-menu {
-  background: #000000;
+  background: rgb(5, 5, 5);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 101vh;
+  min-height: 100vh;
   width: 100%;
+  top: 0;
   position: fixed;
-  z-index: 3;
-  transform: translateY(-109%);
-  pointer-events: none;
+  z-index: 4;
+  -webkit-clip-path: circle(50px at 100% -10%);
+          clip-path: circle(50px at 100% -10%);
 }
 .nav-menu ul {
   list-style-type: none;
 }
 .nav-menu ul li {
   text-align: center;
-  margin-bottom: 2rem;
   position: relative;
   overflow: hidden;
+  margin-bottom: 1rem;
 }
-.nav-menu ul li div {
+.nav-menu ul li .link-cover {
   transform: translateY(100%);
+  padding: 1rem 0;
+  opacity: 0;
 }
 .nav-menu ul li .link-swipe {
   position: absolute;
@@ -159,6 +146,24 @@ span {
   text-decoration: none;
   color: #fff;
   font-size: 3.5rem;
+}
+.nav-menu .close-btn {
+  position: absolute;
+  top: 3.5rem;
+  right: 2.5rem;
+  z-index: 5;
+}
+.nav-menu .close-btn .line {
+  width: 50px;
+  height: 1.5px;
+  background: #fff;
+  opacity: 0;
+}
+.nav-menu .close-btn .line-1 {
+  transform: rotate(45deg) translateX(-100%);
+}
+.nav-menu .close-btn .line-2 {
+  transform: rotate(-45deg) translateX(100%);
 }
 
 .connect {
@@ -299,13 +304,13 @@ span {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
   transform: translateY(-100%);
-  z-index: 2;
+  z-index: 5;
 }
 .page_content h1 {
   font-size: 5rem;
@@ -766,10 +771,10 @@ span {
   }
 }
 @media (max-width: 480px) {
-  .contact_header .about_header_left div {
+  .contact_header .contact_header_left div {
     justify-content: center;
   }
-  .contact_header .about_header_right {
+  .contact_header .contact_header_right {
     display: none;
   }
 }

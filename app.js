@@ -107,7 +107,7 @@ const createWorkElement = (element) => {
   return project;
 };
 
-function animateHero() {
+const animateHero = () => {
   heroTl = gsap.timeline({
     defaults: {
       ease: "power2.easeInOut",
@@ -169,9 +169,9 @@ function animateHero() {
       );
     },
   });
-}
+};
 
-function getHomepageInfo() {
+const getHomepageInfo = () => {
   const topProjects = document.querySelector(".home_works_top");
   const centerProjects = document.querySelector(".home_works_center");
   const bottomProjects = document.querySelector(".home_works_bottom");
@@ -210,6 +210,18 @@ function getHomepageInfo() {
       alignOrigin: [0.5, 0.5],
       start: 1,
       end: 0,
+    },
+  });
+
+  ScrollTrigger.create({
+    trigger: ".home_works",
+    start: "top bottom-=400px",
+    once: true,
+    // markers: true,
+    onEnter: () => {
+      gsap.to(".home_works h1 .char", {
+        y: 0,
+      });
     },
   });
 
@@ -270,8 +282,8 @@ function getHomepageInfo() {
       },
     });
   });
-}
-function getAboutPageInfo() {
+};
+const getAboutPageInfo = () => {
   const clientLogos = document.querySelector(".about_clients_logos");
 
   const logos = [
@@ -359,8 +371,8 @@ function getAboutPageInfo() {
       );
     },
   });
-}
-function getContactPageInfo() {
+};
+const getContactPageInfo = () => {
   contactTl = gsap.timeline({
     defaults: {
       ease: "power2.inOut",
@@ -388,13 +400,14 @@ function getContactPageInfo() {
     },
     "-=0.25"
   );
-}
+};
 
 // menu animations
 const menuBtn = document.querySelector(".menu-btn");
 const closeBtn = document.querySelector(".close-btn");
 
 const menuIn = () => {
+  document.body.style.position = "fixed";
   const menuTl = gsap.timeline({
     defaults: {
       ease: "power2.inOut",
@@ -402,24 +415,27 @@ const menuIn = () => {
     },
   });
 
-  menuTl.to([".navbar h2, .navbar h4, .navbar .menu-btn"], {
-    opacity: 0,
-  });
+  // menuTl.to([".navbar h2, .navbar h4, .navbar .menu-btn"], {
+  //   opacity: 0,
+  // });
 
   menuTl.to(".nav-menu", {
-    y: 0,
+    clipPath: "circle(170% at 100% -10%)",
     pointerEvents: "all",
     duration: 1,
-    onComplete: () => {
-      document.body.style.position = "fixed";
-    },
   });
 
-  menuTl.to(".nav-menu .link-cover", {
-    y: 0,
-    stagger: 0.2,
-    ease: "bounce3.inOut",
-  });
+  menuTl.to(
+    ".nav-menu .link-cover",
+    {
+      y: 0,
+      opacity: 1,
+      stagger: 0.2,
+      duration: 0.8,
+      ease: "back.out(2)",
+    },
+    "-=0.35"
+  );
 
   menuTl.to(".close-btn .line-1", {
     transform: "rotate(45deg) translateX(0%)",
@@ -437,15 +453,18 @@ const menuIn = () => {
 };
 
 const menuOut = () => {
+  document.body.style.position = "";
   const menuTl = gsap.timeline({
     defaults: {
-      ease: "power2.inOut",
+      // ease: "power2.inOut",
     },
   });
   menuTl.to(".nav-menu .link-cover", {
     y: 100,
-    stagger: -0.2,
-    ease: "bounce3.inOut",
+    stagger: 0.2,
+    duration: 0.8,
+    ease: "back.in(2)",
+    opacity: 0,
   });
 
   menuTl.to(".close-btn .line-1", {
@@ -463,17 +482,13 @@ const menuOut = () => {
   );
 
   menuTl.to(".nav-menu", {
-    transform: " translateY(-109%)",
+    clipPath: "circle(50px at 100% -10%)",
     duration: 1,
-    pointerEvents: "none",
-    onComplete: () => {
-      document.body.style.position = "";
-    },
   });
 
-  menuTl.to([".navbar h2, .navbar h4, .navbar .menu-btn"], {
-    opacity: 1,
-  });
+  // menuTl.to([".navbar h2, .navbar h4, .navbar .menu-btn"], {
+  //   opacity: 1,
+  // });
 };
 
 menuBtn.addEventListener("click", menuIn);
@@ -482,7 +497,10 @@ closeBtn.addEventListener("click", menuOut);
 const menuLinks = document.querySelectorAll(".nav-menu li a");
 
 menuLinks.forEach((link) => {
-  link.addEventListener("click", () => (document.body.style.position = ""));
+  link.addEventListener("click", () => {
+    document.body.style.position = "";
+    // menuOut;
+  });
 });
 
 barba.init({
@@ -492,18 +510,6 @@ barba.init({
       beforeEnter() {
         getHomepageInfo();
         animateHero();
-
-        ScrollTrigger.create({
-          trigger: ".home_works",
-          start: "top bottom-=400px",
-          once: true,
-          // markers: true,
-          onEnter: () => {
-            gsap.to(".home_works h1 .char", {
-              y: 0,
-            });
-          },
-        });
       },
     },
     {
@@ -532,7 +538,7 @@ barba.init({
           },
         });
 
-        tl.fromTo(data.current.container, 0.75, { opacity: 1 }, { opacity: 0 });
+        // tl.fromTo(data.current.container, 0.75, { opacity: 1 }, { opacity: 0 });
         tl.fromTo(".page", 0.75, { y: "-100%" }, { y: "0%" });
         tl.fromTo(
           ".page_content .word span",
@@ -547,6 +553,10 @@ barba.init({
             onComplete: done,
           }
         );
+        document.body.style.position = "";
+        // setTimeout(() => {
+        //   menuOut();
+        // }, 1500);
       },
       enter(data) {
         window.scrollTo(0, 0);
@@ -573,14 +583,14 @@ barba.init({
           }
         );
         tl.fromTo(".page", 0.75, { y: "0%" }, { y: "100%" });
-        tl.fromTo(
-          data.next.container,
-          0.75,
-          { opacity: 0 },
-          {
-            opacity: 1,
-          }
-        );
+        // tl.fromTo(
+        //   data.next.container,
+        //   0.75,
+        //   { opacity: 0 },
+        //   {
+        //     opacity: 1,
+        //   }
+        // );
         done();
         ScrollTrigger.refresh(true);
         heroTl.delay(2);
