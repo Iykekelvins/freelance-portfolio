@@ -114,11 +114,11 @@ const animateHero = () => {
     },
   });
 
-  heroTl.fromTo(
+  heroTl.to(
     ".home_hero_content h1 .char",
-    {
-      y: "100%",
-    },
+    // {
+    //   y: "100%",
+    // },
     {
       y: 0,
       stagger: 0.1,
