@@ -24,6 +24,10 @@ requestAnimationFrame(raf);
 const links = document.querySelectorAll("a");
 const main = document.querySelector("main");
 
+links.forEach((link) => {
+  link.addEventListener("click", (e) => e.preventDefault());
+});
+
 // cursor
 function cursor(e) {
   const mouse = document.querySelector(".cursor");
@@ -110,7 +114,7 @@ const createWorkElement = (element) => {
 const animateHero = () => {
   heroTl = gsap.timeline({
     defaults: {
-      ease: "power2.easeInOut",
+      ease: "Expo.inOut",
     },
   });
 

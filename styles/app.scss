@@ -366,6 +366,7 @@ span {
         letter-spacing: 0.05em;
         .char {
           transform: translateY(100%);
+          opacity: 0;
         }
       }
       &_img {
