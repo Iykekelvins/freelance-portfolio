@@ -119,6 +119,7 @@ const animateHero = () => {
   });
   heroTl.set(".home_hero h1", {
     opacity: 1,
+    delay: 0.5,
   });
   heroTl.to(
     ".home_hero_content h1 .char",
