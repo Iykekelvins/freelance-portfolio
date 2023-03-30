@@ -117,7 +117,9 @@ const animateHero = () => {
       ease: "Expo.inOut",
     },
   });
-
+  heroTl.set(".home_hero h1", {
+    opacity: 1,
+  });
   heroTl.to(
     ".home_hero_content h1 .char",
     // {
@@ -126,7 +128,7 @@ const animateHero = () => {
     {
       y: 0,
       stagger: 0.1,
-      opacity: 1,
+      // opacity: 1,
     }
   );
 
@@ -541,7 +543,7 @@ barba.init({
   ],
   transitions: [
     {
-      leave(data) {
+      leave() {
         const done = this.async();
 
         const tl = gsap.timeline({
@@ -549,8 +551,6 @@ barba.init({
             ease: "power2.out",
           },
         });
-
-        // tl.fromTo(data.current.container, 0.75, { opacity: 1 }, { opacity: 0 });
         tl.fromTo(".page", 0.75, { y: "-100%" }, { y: "0%" });
         tl.fromTo(
           ".page_content .word span",
@@ -570,7 +570,7 @@ barba.init({
           menuOut();
         }, 100);
       },
-      enter(data) {
+      enter() {
         window.scrollTo(0, 0);
 
         const done = this.async();
@@ -595,14 +595,6 @@ barba.init({
           }
         );
         tl.fromTo(".page", 0.75, { y: "0%" }, { y: "100%" });
-        // tl.fromTo(
-        //   data.next.container,
-        //   0.75,
-        //   { opacity: 0 },
-        //   {
-        //     opacity: 1,
-        //   }
-        // );
         done();
         ScrollTrigger.refresh(true);
         heroTl.delay(2);
